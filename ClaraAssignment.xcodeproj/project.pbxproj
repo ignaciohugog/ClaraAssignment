@@ -11,6 +11,7 @@
 		98EE84272CAEA6BC00FDCF0C /* Searcher in Frameworks */ = {isa = PBXBuildFile; productRef = 98EE84262CAEA6BC00FDCF0C /* Searcher */; };
 		98EE842C2CAED80500FDCF0C /* Navigation in Frameworks */ = {isa = PBXBuildFile; productRef = 98EE842B2CAED80500FDCF0C /* Navigation */; };
 		98EE842F2CAEEAB300FDCF0C /* Artist in Frameworks */ = {isa = PBXBuildFile; productRef = 98EE842E2CAEEAB300FDCF0C /* Artist */; };
+		98EE84322CAEED2D00FDCF0C /* Album in Frameworks */ = {isa = PBXBuildFile; productRef = 98EE84312CAEED2D00FDCF0C /* Album */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		98EE84212CAE7EE800FDCF0C /* Exceptions for "ClaraAssignment" folder in "ClaraAssignment" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Packages/Album,
 				Packages/Artist,
 				Packages/Core,
 				Packages/Navigation,
@@ -77,6 +79,7 @@
 			files = (
 				98EE842C2CAED80500FDCF0C /* Navigation in Frameworks */,
 				98EE842F2CAEEAB300FDCF0C /* Artist in Frameworks */,
+				98EE84322CAEED2D00FDCF0C /* Album in Frameworks */,
 				98EE84242CAE954A00FDCF0C /* Core in Frameworks */,
 				98EE84272CAEA6BC00FDCF0C /* Searcher in Frameworks */,
 			);
@@ -151,6 +154,7 @@
 				98EE84262CAEA6BC00FDCF0C /* Searcher */,
 				98EE842B2CAED80500FDCF0C /* Navigation */,
 				98EE842E2CAEEAB300FDCF0C /* Artist */,
+				98EE84312CAEED2D00FDCF0C /* Album */,
 			);
 			productName = ClaraAssignment;
 			productReference = 98EE83F22CAE77D000FDCF0C /* ClaraAssignment.app */;
@@ -616,6 +620,10 @@
 		98EE842E2CAEEAB300FDCF0C /* Artist */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Artist;
+		};
+		98EE84312CAEED2D00FDCF0C /* Album */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Album;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

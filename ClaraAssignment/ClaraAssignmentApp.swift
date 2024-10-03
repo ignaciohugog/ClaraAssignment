@@ -2,6 +2,7 @@ import SwiftUI
 import Searcher
 import Navigation
 import Artist
+import Album
 
 @main
 struct ClaraAssignmentApp: App {
@@ -36,8 +37,7 @@ struct AppCoordinator<Content: View>: View {
                     case .artist(let symbol):
                         ArtistServiceLocator.entryView(router: state)
                     case .album(let symbol):
-//                        AlbumServiceLocator.entryView(router: state)
-                        EmptyView()
+                        AlbumServiceLocator.entryView(router: state)
                     }
                 }
         }
