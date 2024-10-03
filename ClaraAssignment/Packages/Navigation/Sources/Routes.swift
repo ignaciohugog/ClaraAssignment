@@ -12,7 +12,9 @@ public final class FlowState<T: Hashable & Identifiable>: ObservableObject {
 }
 
 public enum SearchRoutes: Hashable, Identifiable {
-    case detail(String)
+    case artist(String)
+    case album(String)
+
     public var id: String {
         String(describing: self)
     }

@@ -1,6 +1,7 @@
 import SwiftUI
 import Searcher
 import Navigation
+import Artist
 
 @main
 struct ClaraAssignmentApp: App {
@@ -32,7 +33,10 @@ struct AppCoordinator<Content: View>: View {
             content()
                 .navigationDestination(for: SearchRoutes.self) { route in
                     switch route {
-                    case .detail(let symbol):
+                    case .artist(let symbol):
+                        ArtistServiceLocator.entryView(router: state)
+                    case .album(let symbol):
+//                        AlbumServiceLocator.entryView(router: state)
                         EmptyView()
                     }
                 }

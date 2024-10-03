@@ -45,7 +45,7 @@ final class SearcherViewModel: SearcherViewModelInterface {
 //        guard let index = state.loaded.firstIndex(of: item) else { return }
 //        let item = items[index]
 //        router.push(.detail(item.symbol))
-        router.push(.detail(""))
+        router.push(.artist(""))
     }
 }
 
