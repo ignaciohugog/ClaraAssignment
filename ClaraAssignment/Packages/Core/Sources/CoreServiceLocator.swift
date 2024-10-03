@@ -8,4 +8,8 @@ extension Container {
     var searchRepository: Factory<SearchRepositoryInterface> {
         Factory(self) { SearchRepository() }
     }
+
+    public var searchUseCase: Factory<SearchUseCase> {
+        Factory(self) { Search() }
+    }
 }

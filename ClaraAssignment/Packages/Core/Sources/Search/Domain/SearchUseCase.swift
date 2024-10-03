@@ -1,7 +1,7 @@
 import Factory
 
 public enum SearchError: Error, Sendable {
-    case badURL
+    case empty
     case badServerResponse
 }
 
@@ -18,6 +18,7 @@ struct Search: SearchUseCase {
     func callAsFunction(_ artist: String) async -> SearchResult {
         do {
             let results = try await repository.search(artist).results
+            guard !results.isEmpty else { return .failure(.empty) }
             return .success(results.map { dto in
                 Artist(id: dto.id, title: dto.title, thumb: dto.thumb)
             })
