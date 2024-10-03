@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		98EE84242CAE954A00FDCF0C /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 98EE84232CAE954A00FDCF0C /* Core */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		98EE84032CAE77D800FDCF0C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -29,9 +33,22 @@
 		98EE840C2CAE77D800FDCF0C /* ClaraAssignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClaraAssignmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		98EE84212CAE7EE800FDCF0C /* Exceptions for "ClaraAssignment" folder in "ClaraAssignment" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Packages/Core,
+			);
+			target = 98EE83F12CAE77D000FDCF0C /* ClaraAssignment */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		98EE83F42CAE77D000FDCF0C /* ClaraAssignment */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				98EE84212CAE7EE800FDCF0C /* Exceptions for "ClaraAssignment" folder in "ClaraAssignment" target */,
+			);
 			path = ClaraAssignment;
 			sourceTree = "<group>";
 		};
@@ -52,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98EE84242CAE954A00FDCF0C /* Core in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +96,7 @@
 				98EE83F42CAE77D000FDCF0C /* ClaraAssignment */,
 				98EE84052CAE77D800FDCF0C /* ClaraAssignmentTests */,
 				98EE840F2CAE77D800FDCF0C /* ClaraAssignmentUITests */,
+				98EE84222CAE954A00FDCF0C /* Frameworks */,
 				98EE83F32CAE77D000FDCF0C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +109,13 @@
 				98EE840C2CAE77D800FDCF0C /* ClaraAssignmentUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		98EE84222CAE954A00FDCF0C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +138,7 @@
 			);
 			name = ClaraAssignment;
 			packageProductDependencies = (
+				98EE84232CAE954A00FDCF0C /* Core */,
 			);
 			productName = ClaraAssignment;
 			productReference = 98EE83F22CAE77D000FDCF0C /* ClaraAssignment.app */;
@@ -395,7 +422,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ClaraAssignment/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = SA7Q3R4XR9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -404,6 +431,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -424,7 +452,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ClaraAssignment/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = SA7Q3R4XR9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -433,6 +461,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -558,6 +587,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		98EE84232CAE954A00FDCF0C /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Core;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 98EE83EA2CAE77D000FDCF0C /* Project object */;
 }
