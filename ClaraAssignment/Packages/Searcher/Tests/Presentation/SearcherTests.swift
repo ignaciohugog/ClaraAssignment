@@ -26,7 +26,7 @@ final class SearcherViewModelTests {
     // MARK: - Tests
 
     // TODO: Fix this test
-    
+
 //    @MainActor @Test func testSubmitWhenSuccessThenStateIsLoaded() async {
 //        givenSuccess()
 //

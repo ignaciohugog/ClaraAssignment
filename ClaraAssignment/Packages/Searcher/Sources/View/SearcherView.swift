@@ -5,20 +5,21 @@ struct SearcherView<ViewModel: SearcherViewModelInterface>: View {
     @ObservedObject var viewModel: ViewModel
 
     var body: some View {
-        NavigationStack {
-            Group {
-                switch viewModel.state {
-                case .loaded(let items):
-                    List {
-                        ForEach(items) { item in
-                            Text(item.name)
-                        }
+        Group {
+            switch viewModel.state {
+            case .loaded(let items):
+                List {
+                    ForEach(items) { item in
+                        Text(item.name)
+                    }.onTapGesture {
+                        viewModel.goDetail(.init(id: 0, name: "name"))
                     }
-                case .info(let model):
-                    EmptyContentView(model: model)
                 }
+            case .info(let model):
+                EmptyContentView(model: model)
             }
-        }.searchable(
+        }
+        .searchable(
             text: $viewModel.searchQuery,
             placement: .automatic,
             prompt: "Artist name"
@@ -33,3 +34,8 @@ struct SearcherView<ViewModel: SearcherViewModelInterface>: View {
         }
     }
 }
+
+
+
+
+

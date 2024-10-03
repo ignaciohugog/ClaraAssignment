@@ -14,13 +14,15 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/onevcat/Kingfisher", from: "7.12.0"),
         .package(path: "../Core"),
+        .package(path: "../Navigation"),
     ],
     targets: [
         .target(
             name: "Searcher",
             dependencies: [
                 "Kingfisher",
-                "Core"
+                "Core",
+                "Navigation"
             ]
         ),
         .testTarget(
