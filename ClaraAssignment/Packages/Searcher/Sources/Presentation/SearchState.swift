@@ -1,6 +1,6 @@
 enum SearchState {
     case loaded([ArtistItem])
-    case empty(EmptyModel)
+    case info(EmptyModel)
 }
 
 extension SearchState {

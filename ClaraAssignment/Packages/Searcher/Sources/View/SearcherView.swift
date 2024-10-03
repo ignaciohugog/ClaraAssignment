@@ -14,7 +14,7 @@ struct SearcherView<ViewModel: SearcherViewModelInterface>: View {
                             Text(item.name)
                         }
                     }
-                case .empty(let model):
+                case .info(let model):
                     EmptyContentView(model: model)
                 }
             }

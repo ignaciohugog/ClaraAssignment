@@ -11,7 +11,7 @@ protocol SearcherViewModelInterface: ObservableObject {
 
 final class SearcherViewModel: SearcherViewModelInterface {
     @Published var searchQuery: String = ""
-    @Published var state: SearchState = .empty(SearchState.searchModel)
+    @Published var state: SearchState = .info(SearchState.searchModel)
     @Injected(\.searchUseCase) private var searchUseCase: SearchUseCase
 
     @MainActor func onSubmit() {
@@ -24,9 +24,9 @@ final class SearcherViewModel: SearcherViewModelInterface {
             case .failure(let error):
                 switch error {
                 case .badServerResponse:
-                    state = .empty(SearchState.errorModel)
+                    state = .info(SearchState.errorModel)
                 case .empty:
-                    state = .empty(SearchState.emptyModel)
+                    state = .info(SearchState.emptyModel)
                 }
 
             }
@@ -34,7 +34,7 @@ final class SearcherViewModel: SearcherViewModelInterface {
     }
 
     func clearSearch() {
-        state = .empty(SearchState.searchModel)
+        state = .info(SearchState.searchModel)
     }
 }
 

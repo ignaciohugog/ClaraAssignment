@@ -7,7 +7,6 @@ public enum SearchError: Error, Sendable {
 
 public typealias SearchResult = Result<[Artist], SearchError>
 
-// sourcery: AutoMockable
 public protocol SearchUseCase {
     func callAsFunction(_ artist: String) async -> SearchResult
 }
