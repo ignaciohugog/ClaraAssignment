@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		98EE84242CAE954A00FDCF0C /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 98EE84232CAE954A00FDCF0C /* Core */; };
+		98EE84272CAEA6BC00FDCF0C /* Searcher in Frameworks */ = {isa = PBXBuildFile; productRef = 98EE84262CAEA6BC00FDCF0C /* Searcher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Packages/Core,
+				Packages/Searcher,
 			);
 			target = 98EE83F12CAE77D000FDCF0C /* ClaraAssignment */;
 		};
@@ -70,6 +72,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98EE84242CAE954A00FDCF0C /* Core in Frameworks */,
+				98EE84272CAEA6BC00FDCF0C /* Searcher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +142,7 @@
 			name = ClaraAssignment;
 			packageProductDependencies = (
 				98EE84232CAE954A00FDCF0C /* Core */,
+				98EE84262CAEA6BC00FDCF0C /* Searcher */,
 			);
 			productName = ClaraAssignment;
 			productReference = 98EE83F22CAE77D000FDCF0C /* ClaraAssignment.app */;
@@ -592,6 +596,10 @@
 		98EE84232CAE954A00FDCF0C /* Core */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Core;
+		};
+		98EE84262CAEA6BC00FDCF0C /* Searcher */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Searcher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
