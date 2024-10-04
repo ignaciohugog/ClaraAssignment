@@ -10,6 +10,7 @@ protocol SearcherViewModelInterface: ObservableObject {
     func clearSearch()
     func showArtistDetail(_ item: ArtistItem)
     @MainActor func onSubmit(_ query: String)
+    @MainActor func search(_ query: String)
 }
 
 final class SearcherViewModel: SearcherViewModelInterface {
@@ -17,21 +18,33 @@ final class SearcherViewModel: SearcherViewModelInterface {
     @Injected(\.router) private var router: FlowState<SearchRoutes>
     @Injected(\.searchArtistUseCase) private var searchUseCase: SearchArtistUseCase
 
-    @MainActor func onSubmit(_ query: String) {
-        state = .loading
+    @MainActor func search(_ query: String) {
         Task {
             switch await searchUseCase(query) {
-            case .success(let artists):
-                state = .loaded(artists.map(mapToItem))
+            case .success(let results):
+                switch state {
+                case .loaded(let items):
+                    state = .loaded(items + results.map(mapToItem))
+                default:
+                    state = .loaded(results.map(mapToItem))
+                }
             case .failure(let error):
                 switch error {
                 case .badServerResponse:
                     state = .info(EmptyModel.error)
                 case .empty:
                     state = .info(EmptyModel.empty)
+                case .noMoreResults, .fetchInProgress:
+                    // TODO: Handle no more results
+                    break
                 }
             }
         }
+    }
+
+    @MainActor func onSubmit(_ query: String) {
+        state = .loading
+        search(query)
     }
 
     func clearSearch() {
@@ -46,4 +59,3 @@ final class SearcherViewModel: SearcherViewModelInterface {
         .init(id: artist.id, name: artist.title)
     }
 }
-

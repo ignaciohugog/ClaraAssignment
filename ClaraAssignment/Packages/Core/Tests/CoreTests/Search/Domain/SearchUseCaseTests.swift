@@ -4,7 +4,7 @@ import Factory
 
 final class SearchArtistUseCaseTests {
 
-    private var sut: SearchArtistUseCase!
+    private var sut: SearchArtistUseCaseInterface!
     private var searchRepository: SearchRepositoryMock!
 
     // MARK: - Setup

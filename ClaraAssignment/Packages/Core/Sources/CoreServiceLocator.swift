@@ -14,7 +14,7 @@ extension Container {
     }
 
     public var searchArtistUseCase: Factory<SearchArtistUseCase> {
-        Factory(self) { SearchArtists() }
+        Factory(self) { SearchArtist() }
     }
 
     public var searchAlbumsUseCase: Factory<SearchAlbumsUseCase> {

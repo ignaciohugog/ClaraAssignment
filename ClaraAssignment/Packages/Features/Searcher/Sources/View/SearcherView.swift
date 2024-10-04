@@ -15,6 +15,11 @@ struct SearcherView<ViewModel: SearcherViewModelInterface>: View {
                             .onTapGesture {
                                 viewModel.showArtistDetail(item)
                             }
+                            .onAppear {
+                                if items.last == item {
+                                    viewModel.search(searchQuery)
+                                }
+                            }
                     }
                 }
             case .info(let model):

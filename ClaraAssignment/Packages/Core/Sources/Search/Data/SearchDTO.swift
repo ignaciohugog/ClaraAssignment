@@ -1,9 +1,14 @@
 struct SearchDTO: Decodable {
-    struct ArtistDTO: Decodable {
+    let results: [ItemDTO]
+    let pagination: PaginationDTO
+
+    struct ItemDTO: Decodable {
         let id: Int
         let title: String
         let thumb: String
     }
 
-    let results: [ArtistDTO]
+    struct PaginationDTO: Decodable {
+        let pages: Int
+    }
 }

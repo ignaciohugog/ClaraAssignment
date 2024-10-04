@@ -25,13 +25,21 @@ final class AlbumViewModel: AlbumViewModelInterface {
         Task {
             switch await searchUseCase(mapFilter()) {
             case .success(let results):
-                state = .loaded(results.map(mapToItem))
+                switch state {
+                case .loaded(let items):
+                    state = .loaded(items + results.map(mapToItem))
+                default:
+                    state = .loaded(results.map(mapToItem))
+                }
             case .failure(let error):
                 switch error {
                 case .badServerResponse:
                     state = .info(EmptyModel.error)
                 case .empty:
                     state = .info(EmptyModel.empty)
+                case .noMoreResults, .fetchInProgress:
+                    // TODO: Handle no more results
+                    break
                 }
             }
         }

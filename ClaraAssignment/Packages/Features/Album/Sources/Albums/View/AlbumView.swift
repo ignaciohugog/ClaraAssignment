@@ -12,6 +12,11 @@ struct AlbumView<ViewModel: AlbumViewModelInterface>: View {
                 List {
                     ForEach(items) { item in
                         Text(item.name)
+                            .onAppear {
+                                if items.last == item {
+                                    viewModel.search()
+                                }
+                            }
                     }
                 }
             case .info(let model):
