@@ -6,10 +6,7 @@ import Navigation
 
 @MainActor
 public final class AlbumServiceLocator {
-    public static func entryView(router: FlowState<SearchRoutes>) -> some View {
-        let vm = AlbumViewModel()
-        vm.router = router
-
-        return AlbumView(viewModel: vm)
+    public static func entryView(_ artistId: String) -> some View {
+        AlbumView(viewModel: AlbumViewModel(artistId))
     }
 }

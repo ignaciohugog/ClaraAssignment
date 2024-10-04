@@ -9,7 +9,15 @@ extension Container {
         Factory(self) { SearchRepository() }
     }
 
+    var artistRepository: Factory<ArtistRepositoryInterface> {
+        Factory(self) { ArtistRepository() }
+    }
+
     public var searchUseCase: Factory<SearchUseCase> {
         Factory(self) { Search() }
+    }
+
+    public var getArtistUseCase: Factory<GetArtistUseCase> {
+        Factory(self) { GetArtist() }
     }
 }

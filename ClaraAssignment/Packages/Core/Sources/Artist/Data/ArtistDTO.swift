@@ -1,33 +1,17 @@
 struct ArtistDTO: Decodable {
-    let name: String
     let id: Int
+    let name: String
     let profile: String
-    let namevariations: [String]
-    let members: [Member]
-    let images: [Image]
+    let members: [Member]?
 
-    struct Image: Codable {
-        let type, uri, resourceURL, uri150: String
-        let width, height: Int
-
-        enum CodingKeys: String, CodingKey {
-            case type, uri
-            case resourceURL = "resource_url"
-            case uri150, width, height
-        }
-    }
-
-    struct Member: Codable {
+    struct Member: Decodable {
         let id: Int
         let name: String
-        let resourceURL: String
-        let active: Bool
+        let resourceURL: String?
 
         enum CodingKeys: String, CodingKey {
             case id, name
-            case resourceURL = "resource_url"
-            case active
+            case resourceURL = "resource_url"            
         }
     }
-
 }

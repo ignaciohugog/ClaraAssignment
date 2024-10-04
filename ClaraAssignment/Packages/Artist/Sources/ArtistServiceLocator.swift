@@ -6,10 +6,7 @@ import Navigation
 
 @MainActor
 public final class ArtistServiceLocator {
-    public static func entryView(router: FlowState<SearchRoutes>) -> some View {
-        let vm = ArtistViewModel()
-        vm.router = router
-
-        return ArtistView(viewModel: vm)
+    public static func entryView(_ artistId: String) -> some View {
+        ArtistView(viewModel: ArtistViewModel(artistId))
     }
 }

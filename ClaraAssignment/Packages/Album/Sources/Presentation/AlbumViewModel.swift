@@ -7,6 +7,10 @@ protocol AlbumViewModelInterface: ObservableObject {
 }
 
 final class AlbumViewModel: AlbumViewModelInterface {
-    var router: FlowState<SearchRoutes>!
+    private var artistId: String
+    @Injected(\.router) private var router: FlowState<SearchRoutes>
 
+    init(_ artistId: String) {
+        self.artistId = artistId
+    }
 }

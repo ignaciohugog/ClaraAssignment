@@ -3,6 +3,7 @@ import Searcher
 import Navigation
 import Artist
 import Album
+import Factory
 
 @main
 struct ClaraAssignmentApp: App {
@@ -16,8 +17,8 @@ struct ClaraAssignmentApp: App {
 }
 
 @MainActor func appView() -> some View {
-    let state = FlowState<SearchRoutes>()
-    let view = SearcherServiceLocator.entryView(router: state)
+    let state = Container.shared.router.resolve()
+    let view = SearcherServiceLocator.entryView()
 
     return AppCoordinator(state: state) {
         view
@@ -33,11 +34,12 @@ struct AppCoordinator<Content: View>: View {
         NavigationStack(path: $state.path) {
             content()
                 .navigationDestination(for: SearchRoutes.self) { route in
+                    
                     switch route {
-                    case .artist(let symbol):
-                        ArtistServiceLocator.entryView(router: state)
-                    case .album(let symbol):
-                        AlbumServiceLocator.entryView(router: state)
+                    case .artist(let artist):
+                        ArtistServiceLocator.entryView(artist)
+                    case .album(let artist):
+                        AlbumServiceLocator.entryView(artist)
                     }
                 }
         }

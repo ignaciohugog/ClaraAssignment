@@ -11,9 +11,14 @@ let package = Package(
             name: "Navigation",
             targets: ["Navigation"]),
     ],
+    dependencies: [
+        .package(path: "../Core"),
+    ],
     targets: [
         .target(
-            name: "Navigation"),
+            name: "Navigation",
+            dependencies: ["Core"]
+        ),
         .testTarget(
             name: "NavigationTests",
             dependencies: ["Navigation"]

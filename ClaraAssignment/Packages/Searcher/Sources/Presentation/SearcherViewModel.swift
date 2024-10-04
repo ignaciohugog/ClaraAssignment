@@ -14,9 +14,9 @@ protocol SearcherViewModelInterface: ObservableObject {
 final class SearcherViewModel: SearcherViewModelInterface {
     @Published var searchQuery: String = ""
     @Published var state: SearchState = .info(SearchState.searchModel)
+    @Injected(\.router) private var router: FlowState<SearchRoutes>
     @Injected(\.searchUseCase) private var searchUseCase: SearchUseCase
 
-    var router: FlowState<SearchRoutes>!
 
     @MainActor func onSubmit() {
         Task {
@@ -42,10 +42,7 @@ final class SearcherViewModel: SearcherViewModelInterface {
     }
 
     func goDetail(_ item: ArtistItem) {
-//        guard let index = state.loaded.firstIndex(of: item) else { return }
-//        let item = items[index]
-//        router.push(.detail(item.symbol))
-        router.push(.artist(""))
+        router.push(.artist("\(item.id)"))
     }
 }
 

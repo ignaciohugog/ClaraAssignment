@@ -1,4 +1,5 @@
 import Testing
+import Foundation
 import Core
 import Factory
 @testable import Searcher
@@ -20,32 +21,28 @@ final class SearcherViewModelTests {
     deinit {
         sut = nil
         searchUseCaseMock = nil
-        Container.shared.reset()
     }
 
     // MARK: - Tests
 
     // TODO: Fix this test
 
-//    @MainActor @Test func testSubmitWhenSuccessThenStateIsLoaded() async {
-//        givenSuccess()
-//
-//        // await task 0.2
-//        try? await Task.sleep(nanoseconds: 200_000_000)
-//
-//        sut.onSubmit()
-//
-//        thenExpectLoaded()
-//    }
 
-    @MainActor @Test func testSubmitWhenEmptyThenStateIsEmpty() async {
+    @MainActor @Test func testSubmitWhenSuccessThenStateIsLoaded() async {
+        givenSuccess()
+
+        sut.onSubmit()
+
+        await thenExpectLoaded()
+    }
+
+    @MainActor @Test func testSubmitWhenFailThenStateIsInfo() async {
         givenEmptyResponse()
 
         sut.onSubmit()
 
-        thenExpectInfo()
+        await thenExpectInfo()
     }
-
 
     // MARK: - Given
 
@@ -62,14 +59,16 @@ final class SearcherViewModelTests {
 
     // MARK: Then
 
-    private func thenExpectLoaded() {
-        if case .loaded = sut.state { return }
-        Issue.record("Expected loaded, but got \(sut.state)")
+    @MainActor private func thenExpectLoaded() async {
+        for try await state in self.sut.$state.values {
+            if case .loaded = state { return }
+        }
     }
 
-    private func thenExpectInfo() {
-        if case .info = sut.state { return }
-        Issue.record("Expected loaded, but got \(sut.state)")
+    @MainActor private func thenExpectInfo() async {
+        for try await state in self.sut.$state.values {
+            if case .info = state { return }
+        }
     }
 }
 

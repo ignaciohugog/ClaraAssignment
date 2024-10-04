@@ -11,8 +11,9 @@ struct SearcherView<ViewModel: SearcherViewModelInterface>: View {
                 List {
                     ForEach(items) { item in
                         Text(item.name)
-                    }.onTapGesture {
-                        viewModel.goDetail(.init(id: 0, name: "name"))
+                            .onTapGesture {
+                                viewModel.goDetail(item)
+                            }
                     }
                 }
             case .info(let model):

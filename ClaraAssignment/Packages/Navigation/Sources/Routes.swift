@@ -19,3 +19,14 @@ public enum SearchRoutes: Hashable, Identifiable {
         String(describing: self)
     }
 }
+
+
+// TODO: Improve it
+
+import Factory
+
+extension Container {
+    public var router: Factory<FlowState<SearchRoutes>> {
+        Factory(self) { FlowState<SearchRoutes>() }.singleton
+    }
+}

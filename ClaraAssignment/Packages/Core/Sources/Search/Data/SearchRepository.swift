@@ -13,7 +13,8 @@ struct SearchRepository: SearchRepositoryInterface {
             Keys.Url.search,
             parameters: [
                 "token": Keys.API.key,
-                "artist": artist
+                "q": artist,
+                "type": "artist"
             ])
     }
 }
