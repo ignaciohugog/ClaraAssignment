@@ -46,6 +46,7 @@
 				Packages/Core,
 				Packages/Navigation,
 				Packages/Searcher,
+				Packages/UI,
 			);
 			target = 98EE83F12CAE77D000FDCF0C /* ClaraAssignment */;
 		};

@@ -1,16 +1,13 @@
 import SwiftUI
 
-// TODO: Create and move to UI Module
-struct EmptyModel {
-    var title: String
-    var systemImage: String
-    var description: String
-}
-
-struct EmptyContentView: View {
+public struct EmptyContentView: View {
     var model: EmptyModel
 
-    var body: some View {
+    public init(model: EmptyModel) {
+        self.model = model
+    }
+
+    public var body: some View {
         VStack(spacing: 16) {
             Image(systemName: model.systemImage)
                 .resizable()

@@ -1,8 +1,9 @@
 import SwiftUI
-import Kingfisher
+import UI
 
 struct SearcherView<ViewModel: SearcherViewModelInterface>: View {
     @ObservedObject var viewModel: ViewModel
+    @State private var searchQuery: String = ""
 
     var body: some View {
         Group {
@@ -12,23 +13,25 @@ struct SearcherView<ViewModel: SearcherViewModelInterface>: View {
                     ForEach(items) { item in
                         Text(item.name)
                             .onTapGesture {
-                                viewModel.goDetail(item)
+                                viewModel.showArtistDetail(item)
                             }
                     }
                 }
             case .info(let model):
                 EmptyContentView(model: model)
+            case .loading:
+                ProgressView()
             }
         }
         .searchable(
-            text: $viewModel.searchQuery,
+            text: $searchQuery,
             placement: .automatic,
             prompt: "Artist name"
         )
         .textInputAutocapitalization(.never)
         .onSubmit(of: .search) {
-            viewModel.onSubmit()
-        }.onChange(of: viewModel.searchQuery) {
+            viewModel.onSubmit(searchQuery)
+        }.onChange(of: searchQuery) {
             if $0.isEmpty {
                 viewModel.clearSearch()
             }

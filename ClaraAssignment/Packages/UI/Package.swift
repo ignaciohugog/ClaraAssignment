@@ -4,30 +4,26 @@
 import PackageDescription
 
 let package = Package(
-    name: "Searcher",
+    name: "UI",
     platforms: [.iOS(.v16)],
     products: [
         .library(
-            name: "Searcher",
-            targets: ["Searcher"]),
+            name: "UI",
+            targets: ["UI"]),
     ],
     dependencies: [
-        .package(path: "../Core"),
-        .package(path: "../UI"),
-        .package(path: "../Navigation"),
+        .package(url: "https://github.com/onevcat/Kingfisher", from: "7.12.0")
     ],
     targets: [
         .target(
-            name: "Searcher",
+            name: "UI",
             dependencies: [
-                "Core",
-                "UI",
-                "Navigation"
+                "Kingfisher"
             ]
         ),
         .testTarget(
-            name: "SearcherTests",
-            dependencies: ["Searcher"]
+            name: "UITests",
+            dependencies: ["UI"]
         ),
     ]
 )

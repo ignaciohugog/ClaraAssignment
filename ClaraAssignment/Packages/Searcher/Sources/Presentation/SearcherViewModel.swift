@@ -1,26 +1,26 @@
-import SwiftUI
+import UI
 import Core
+import SwiftUI
 import Factory
 import Navigation
 
 protocol SearcherViewModelInterface: ObservableObject {
-    var state: SearchState { get }
-    var searchQuery: String { get set }
-    @MainActor func onSubmit()
+    var state: ViewState<[ArtistItem]> { get }
+
     func clearSearch()
-    func goDetail(_ item: ArtistItem)
+    func showArtistDetail(_ item: ArtistItem)
+    @MainActor func onSubmit(_ query: String)
 }
 
 final class SearcherViewModel: SearcherViewModelInterface {
-    @Published var searchQuery: String = ""
-    @Published var state: SearchState = .info(SearchState.searchModel)
+    @Published var state: ViewState<[ArtistItem]> = .info(EmptyModel.search)
     @Injected(\.router) private var router: FlowState<SearchRoutes>
     @Injected(\.searchArtistUseCase) private var searchUseCase: SearchArtistUseCase
 
-
-    @MainActor func onSubmit() {
+    @MainActor func onSubmit(_ query: String) {
+        state = .loading
         Task {
-            switch await searchUseCase(searchQuery) {
+            switch await searchUseCase(query) {
             case .success(let artists):
                 state = .loaded(artists.map {
                     .init(id: $0.id, name: $0.title)
@@ -28,9 +28,9 @@ final class SearcherViewModel: SearcherViewModelInterface {
             case .failure(let error):
                 switch error {
                 case .badServerResponse:
-                    state = .info(SearchState.errorModel)
+                    state = .info(EmptyModel.error)
                 case .empty:
-                    state = .info(SearchState.emptyModel)
+                    state = .info(EmptyModel.empty)
                 }
 
             }
@@ -38,10 +38,10 @@ final class SearcherViewModel: SearcherViewModelInterface {
     }
 
     func clearSearch() {
-        state = .info(SearchState.searchModel)
+        state = .info(EmptyModel.search)
     }
 
-    func goDetail(_ item: ArtistItem) {
+    func showArtistDetail(_ item: ArtistItem) {
         router.push(.artist("\(item.id)"))
     }
 }

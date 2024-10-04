@@ -1,22 +1,29 @@
-enum SearchState {
-    case loaded([ArtistItem])
+public enum ViewState<T> {
+    case loaded(T)
     case info(EmptyModel)
+    case loading
 }
 
-extension SearchState {
-    static var emptyModel: EmptyModel {
+public struct EmptyModel {
+    public var title: String
+    public var systemImage: String
+    public var description: String
+}
+
+public extension EmptyModel {
+    static var empty: EmptyModel {
         EmptyModel(title: "No results",
                    systemImage: "magnifyingglass",
                    description: "No results found")
     }
 
-    static var searchModel: EmptyModel {
+    static var search: EmptyModel {
         EmptyModel(title: "Search for an artist",
                    systemImage: "magnifyingglass",
                    description: "Start typing to search")
     }
 
-    static var errorModel: EmptyModel {
+    static var error: EmptyModel {
         EmptyModel(title: "Error",
                    systemImage: "exclamationmark.triangle",
                    description: "An error occurred")
