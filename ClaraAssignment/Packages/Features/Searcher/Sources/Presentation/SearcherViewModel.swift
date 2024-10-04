@@ -30,7 +30,6 @@ final class SearcherViewModel: SearcherViewModelInterface {
                 case .empty:
                     state = .info(EmptyModel.empty)
                 }
-
             }
         }
     }

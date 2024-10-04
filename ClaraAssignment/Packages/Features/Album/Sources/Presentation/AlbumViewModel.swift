@@ -25,8 +25,13 @@ final class AlbumViewModel: AlbumViewModelInterface {
             switch await searchUseCase(artistId) {
             case .success(let results):
                 state = .loaded(results.map(mapToItem))
-            case .failure:
-                state = .info(EmptyModel.error)
+            case .failure(let error):
+                switch error {
+                case .badServerResponse:
+                    state = .info(EmptyModel.error)
+                case .empty:
+                    state = .info(EmptyModel.empty)
+                }
             }
         }
     }
