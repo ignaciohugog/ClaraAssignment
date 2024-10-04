@@ -27,7 +27,7 @@ struct AlbumView<ViewModel: AlbumViewModelInterface>: View {
         }
         .onAppear() {
             if case .loading = viewModel.state {
-                viewModel.search()
+                viewModel.onSubmit()
             }
         }
         .navigationTitle("Albums")
@@ -48,7 +48,7 @@ struct AlbumView<ViewModel: AlbumViewModelInterface>: View {
             }
         }
         .sheet(isPresented: $showingSheet) {
-            AlbumFilterView(filter: $viewModel.filter, action: viewModel.search)
+            AlbumFilterView(filter: $viewModel.filter, action: viewModel.onSubmit)
         }
     }
 }

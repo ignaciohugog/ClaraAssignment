@@ -9,6 +9,7 @@ protocol AlbumViewModelInterface: ObservableObject {
     var filter: AlbumFilter { get set }
 
     @MainActor func search()
+    @MainActor func onSubmit()
 }
 
 final class AlbumViewModel: AlbumViewModelInterface {
@@ -43,6 +44,11 @@ final class AlbumViewModel: AlbumViewModelInterface {
                 }
             }
         }
+    }
+
+    @MainActor func onSubmit() {
+        state = .loading
+        search()
     }
 
     private func mapToItem(_ searchItem: SearchItem) -> AlbumItem {
