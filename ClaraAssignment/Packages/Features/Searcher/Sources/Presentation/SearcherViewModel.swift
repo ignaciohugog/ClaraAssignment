@@ -22,9 +22,7 @@ final class SearcherViewModel: SearcherViewModelInterface {
         Task {
             switch await searchUseCase(query) {
             case .success(let artists):
-                state = .loaded(artists.map {
-                    .init(id: $0.id, name: $0.title)
-                })
+                state = .loaded(artists.map(mapToItem))
             case .failure(let error):
                 switch error {
                 case .badServerResponse:
@@ -43,6 +41,10 @@ final class SearcherViewModel: SearcherViewModelInterface {
 
     func showArtistDetail(_ item: ArtistItem) {
         router.push(.artist("\(item.id)"))
+    }
+
+    private func mapToItem(_ artist: SearchItem) -> ArtistItem {
+        .init(id: artist.id, name: artist.title)
     }
 }
 

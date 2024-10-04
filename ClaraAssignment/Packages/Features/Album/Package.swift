@@ -4,28 +4,28 @@
 import PackageDescription
 
 let package = Package(
-    name: "Artist",
+    name: "Album",
     platforms: [.iOS(.v16)],
     products: [
         .library(
-            name: "Artist",
-            targets: ["Artist"]),
+            name: "Album",
+            targets: ["Album"]),
     ],
     dependencies: [
-        .package(path: "../Core"),
-        .package(path: "../Navigation"),
+        .package(path: "../../Core"),
+        .package(path: "../../Navigation"),
     ],
     targets: [
         .target(
-            name: "Artist",
+            name: "Album",
             dependencies: [
                 "Core",
                 "Navigation"
             ]
         ),
         .testTarget(
-            name: "ArtistTests",
-            dependencies: ["Artist"]
+            name: "AlbumTests",
+            dependencies: ["Album"]
         ),
     ]
 )

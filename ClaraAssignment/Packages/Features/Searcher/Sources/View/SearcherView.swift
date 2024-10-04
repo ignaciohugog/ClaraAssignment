@@ -1,5 +1,5 @@
-import SwiftUI
 import UI
+import SwiftUI
 
 struct SearcherView<ViewModel: SearcherViewModelInterface>: View {
     @ObservedObject var viewModel: ViewModel
@@ -38,8 +38,3 @@ struct SearcherView<ViewModel: SearcherViewModelInterface>: View {
         }
     }
 }
-
-
-
-
-

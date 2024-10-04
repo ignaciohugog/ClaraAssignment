@@ -41,11 +41,11 @@
 		98EE84212CAE7EE800FDCF0C /* Exceptions for "ClaraAssignment" folder in "ClaraAssignment" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Packages/Album,
-				Packages/Artist,
 				Packages/Core,
+				Packages/Features/Album,
+				Packages/Features/Artist,
+				Packages/Features/Searcher,
 				Packages/Navigation,
-				Packages/Searcher,
 				Packages/UI,
 			);
 			target = 98EE83F12CAE77D000FDCF0C /* ClaraAssignment */;
