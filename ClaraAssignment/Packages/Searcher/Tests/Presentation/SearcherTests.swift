@@ -14,7 +14,7 @@ final class SearcherViewModelTests {
 
     init() {
         searchUseCaseMock = SearchUseCaseMock()
-        Container.shared.searchUseCase.register { self.searchUseCaseMock }
+        Container.shared.searchArtistUseCase.register { self.searchUseCaseMock }
         sut = SearcherViewModel()
     }
 
@@ -72,7 +72,7 @@ final class SearcherViewModelTests {
     }
 }
 
-class SearchUseCaseMock: SearchUseCase {
+class SearchUseCaseMock: SearchArtistUseCase {
     var response: SearchResult!
 
     func callAsFunction(_ artist: String) async -> SearchResult {

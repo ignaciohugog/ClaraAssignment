@@ -15,7 +15,7 @@ final class SearcherViewModel: SearcherViewModelInterface {
     @Published var searchQuery: String = ""
     @Published var state: SearchState = .info(SearchState.searchModel)
     @Injected(\.router) private var router: FlowState<SearchRoutes>
-    @Injected(\.searchUseCase) private var searchUseCase: SearchUseCase
+    @Injected(\.searchArtistUseCase) private var searchUseCase: SearchArtistUseCase
 
 
     @MainActor func onSubmit() {

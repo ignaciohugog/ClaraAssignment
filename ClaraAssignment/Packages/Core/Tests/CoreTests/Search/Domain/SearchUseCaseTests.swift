@@ -2,9 +2,9 @@ import Testing
 import Factory
 @testable import Core
 
-final class SearchUseCaseTests {
+final class SearchArtistUseCaseTests {
 
-    private var sut: SearchUseCase!
+    private var sut: SearchArtistUseCase!
     private var searchRepository: SearchRepositoryMock!
 
     // MARK: - Setup
@@ -12,7 +12,7 @@ final class SearchUseCaseTests {
     init() {
         searchRepository = SearchRepositoryMock()
         Container.shared.searchRepository.register { self.searchRepository }
-        sut = Search()
+        sut = SearchArtists()
     }
 
     deinit {

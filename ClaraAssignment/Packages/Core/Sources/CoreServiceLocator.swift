@@ -13,8 +13,12 @@ extension Container {
         Factory(self) { ArtistRepository() }
     }
 
-    public var searchUseCase: Factory<SearchUseCase> {
-        Factory(self) { Search() }
+    public var searchArtistUseCase: Factory<SearchArtistUseCase> {
+        Factory(self) { SearchArtists() }
+    }
+
+    public var searchAlbumsUseCase: Factory<SearchAlbumsUseCase> {
+        Factory(self) { SearchAlbums() }
     }
 
     public var getArtistUseCase: Factory<GetArtistUseCase> {
