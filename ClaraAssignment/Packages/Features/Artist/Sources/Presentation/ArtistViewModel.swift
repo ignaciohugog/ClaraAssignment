@@ -33,7 +33,7 @@ final class ArtistViewModel: ArtistViewModelInterface {
     }
 
     func showAlbums() {
-        router.push(.album(""))
+        router.push(.album(artistId))
     }
 
     private func mapToItem(_ artist: ArtistDetail) -> ArtistDetailItem {
