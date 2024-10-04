@@ -6,23 +6,24 @@ import Navigation
 
 protocol AlbumViewModelInterface: ObservableObject {
     var state: ViewState<[AlbumItem]> { get }
+    var filter: AlbumFilter { get set }
 
-    @MainActor func onAppear()
+    @MainActor func search()
 }
 
 final class AlbumViewModel: AlbumViewModelInterface {
-    private var artistId: String
+    @Published var filter: AlbumFilter
     @Published var state: ViewState<[AlbumItem]> = .loading
     @Injected(\.router) private var router: FlowState<SearchRoutes>
     @Injected(\.searchAlbumsUseCase) private var searchUseCase: SearchAlbumsUseCase
 
     init(_ artistId: String) {
-        self.artistId = artistId
+        filter = .init(artistId: artistId)
     }
 
-    @MainActor func onAppear() {
+    @MainActor func search() {
         Task {
-            switch await searchUseCase(artistId) {
+            switch await searchUseCase(mapFilter()) {
             case .success(let results):
                 state = .loaded(results.map(mapToItem))
             case .failure(let error):
@@ -38,5 +39,9 @@ final class AlbumViewModel: AlbumViewModelInterface {
 
     private func mapToItem(_ searchItem: SearchItem) -> AlbumItem {
         .init(id: searchItem.id, name: searchItem.title)
+    }
+
+    private func mapFilter() -> FilterDTO {
+        .init(id: filter.artistId, year: filter.year, genre: filter.genre, label: filter.label)
     }
 }

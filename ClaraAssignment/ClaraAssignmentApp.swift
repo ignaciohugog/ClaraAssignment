@@ -21,7 +21,7 @@ struct ClaraAssignmentApp: App {
     let view = SearcherServiceLocator.entryView()
 
     return AppCoordinator(state: state) {
-        view
+        view        
     }
 }
 
@@ -34,7 +34,6 @@ struct AppCoordinator<Content: View>: View {
         NavigationStack(path: $state.path) {
             content()
                 .navigationDestination(for: SearchRoutes.self) { route in
-                    
                     switch route {
                     case .artist(let artist):
                         ArtistServiceLocator.entryView(artist)

@@ -3,7 +3,7 @@ import Factory
 
 protocol SearchRepositoryInterface {
     func searchArtists(_ query: String) async throws -> SearchDTO
-    func searchAlbums(_ artistId: String) async throws -> SearchDTO
+    func searchAlbums(_ filter: FilterDTO) async throws -> SearchDTO
 }
 
 struct SearchRepository: SearchRepositoryInterface {
@@ -19,13 +19,16 @@ struct SearchRepository: SearchRepositoryInterface {
             ])
     }
 
-    func searchAlbums(_ artistId: String) async throws -> SearchDTO {
+    func searchAlbums(_ filter: FilterDTO) async throws -> SearchDTO {
         try await networkDataSource.request(
             Keys.Url.search,
             parameters: [
                 "token": Keys.API.key,
-                "artist_id": artistId,
-                "type": "release"
+                "type": "release",
+                "artist_id": filter.artistId,
+                "year": filter.year,
+                "genre": filter.genre,
+                "label": filter.label
             ])
     }
 }
