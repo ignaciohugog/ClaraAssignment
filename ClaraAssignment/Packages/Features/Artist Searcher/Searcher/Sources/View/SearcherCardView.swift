@@ -11,8 +11,7 @@ struct SearcherCardView: View {
                 .shadow(radius: 3)
 
             Text(item.name)
-                .font(.headline)
-                .foregroundColor(.primary)
+                .headlineStyle()
 
             Spacer()
 

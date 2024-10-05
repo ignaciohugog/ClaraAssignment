@@ -59,9 +59,9 @@ private extension AlbumViewModel {
         .init(albumId: searchItem.id,
               name: searchItem.title,
               thumb: URL(string: searchItem.thumb),
-              year: searchItem.year ?? "-",
-              genres: searchItem.genres?.joined(separator: ", ") ?? "-",
-              labels: searchItem.labels?.joined(separator: ", ") ?? "-")
+              year: "Year: \(searchItem.year ?? "-")",
+              genres: "Genre: \(searchItem.genres?.joined(separator: ", ") ?? "-")",
+              labels: "Label: \(searchItem.labels?.joined(separator: ", ") ?? "-"))")
     }
 
     private func mapFilter() -> FilterDTO {

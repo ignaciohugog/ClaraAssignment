@@ -56,6 +56,3 @@ struct AlbumView<ViewModel: AlbumViewModelInterface>: View {
         }
     }
 }
-
-
-

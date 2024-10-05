@@ -10,20 +10,16 @@ struct AlbumCardView: View {
                     .frame(width: 60, height: 60)
                 VStack(alignment: .leading, spacing: 4) {
                     Text(album.name)
-                        .font(.headline)
-                        .foregroundColor(.primary)
+                        .headlineStyle()
 
-                    Text("Year: \(album.year)")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
+                    Text(album.year)
+                        .subheadLineStyle()
 
-                    Text("Genres: \(album.genres)")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                    
-                    Text("Labels: \(album.labels)")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
+                    Text(album.genres)
+                        .subheadLineStyle()
+
+                    Text(album.labels)
+                        .subheadLineStyle()
                 }
             }
             .padding(.vertical, 8)

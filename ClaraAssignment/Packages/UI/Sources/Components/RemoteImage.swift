@@ -19,13 +19,3 @@ public struct RemoteImage: View {
             .clipped()
     }
 }
-
-#Preview {
-    RemoteImage(
-        url: URL(string: "https://i.discogs.com/KydDnAWdAzeHy0dZ4YSnpkuh__uLXIk8w60uKQVW0G4/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTEyNTI0/Ni0xNTAxMjg1MjAw/LTMwNTguanBlZw.jpeg")
-    )
-    .frame(width: 60, height: 60)
-    .cornerRadius(10)
-    .shadow(radius: 5)
-}
-
