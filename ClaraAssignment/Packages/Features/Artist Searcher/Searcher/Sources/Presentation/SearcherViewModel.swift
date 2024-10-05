@@ -19,8 +19,27 @@ final class SearcherViewModel: SearcherViewModelInterface {
     @Injected(\.searchArtistUseCase) private var searchUseCase: SearchArtistUseCase
 
     @MainActor func search(_ query: String) {
+        fetch(query)
+    }
+
+    @MainActor func onSubmit(_ query: String) {
+        state = .loading
+        fetch(query, true)
+    }
+
+    func clearSearch() {
+        state = .info(EmptyModel.search)
+    }
+
+    func showArtistDetail(_ item: ArtistItem) {
+        router.push(.artist("\(item.itemId)"))
+    }
+}
+
+private extension SearcherViewModel {
+    @MainActor func fetch(_ query: String, _ newSearch: Bool = false) {
         Task {
-            switch await searchUseCase(query) {
+            switch await searchUseCase(query, newSearch) {
             case .success(let results):
                 switch state {
                 case .loaded(let items):
@@ -42,20 +61,7 @@ final class SearcherViewModel: SearcherViewModelInterface {
         }
     }
 
-    @MainActor func onSubmit(_ query: String) {
-        state = .loading
-        search(query)
-    }
-
-    func clearSearch() {
-        state = .info(EmptyModel.search)
-    }
-
-    func showArtistDetail(_ item: ArtistItem) {
-        router.push(.artist("\(item.itemId)"))
-    }
-
-    private func mapToItem(_ artist: SearchItem) -> ArtistItem {
+    func mapToItem(_ artist: SearchItem) -> ArtistItem {
         .init(itemId: artist.id, name: artist.title, image: URL(string: artist.thumb))
     }
 }

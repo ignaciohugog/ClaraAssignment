@@ -23,8 +23,19 @@ final class AlbumViewModel: AlbumViewModelInterface {
     }
 
     @MainActor func search() {
+        fetch()
+    }
+
+    @MainActor func onSubmit() {
+        state = .loading
+        fetch(true)
+    }
+}
+
+private extension AlbumViewModel {
+    @MainActor func fetch(_ newSearch: Bool = false) {
         Task {
-            switch await searchUseCase(mapFilter()) {
+            switch await searchUseCase(mapFilter(), newSearch) {
             case .success(let results):
                 switch state {
                 case .loaded(let items):
@@ -44,11 +55,6 @@ final class AlbumViewModel: AlbumViewModelInterface {
                 }
             }
         }
-    }
-
-    @MainActor func onSubmit() {
-        state = .loading
-        search()
     }
 
     private func mapToItem(_ searchItem: SearchItem) -> AlbumItem {

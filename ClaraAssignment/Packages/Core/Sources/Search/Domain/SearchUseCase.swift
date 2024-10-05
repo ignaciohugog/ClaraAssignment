@@ -5,8 +5,8 @@ class SearchUseCase<Query: Searchable> {
     private var paginationState = PaginationState<Query>()
     private var isFetching = false
     
-    func callAsFunction(_ query: any Searchable) async -> SearchResult {
-        paginationState.resetIfNeeded(for: query as! Query)
+    func callAsFunction(_ query: any Searchable, _ newSearch: Bool = false) async -> SearchResult {
+        paginationState.resetIfNeeded(for: query as? Query, newSearch)
         guard paginationState.hasMorePages else { return .failure(.noMoreResults) }
         guard !isFetching else { return .failure(.fetchInProgress) }
         isFetching = true
@@ -39,8 +39,8 @@ final class PaginationState<Query: Equatable> {
         return nextPage <= totalPages
     }
 
-    func resetIfNeeded(for query: Query) {
-        guard currentQuery != query else { return }
+    func resetIfNeeded(for query: Query?, _ newSearch: Bool) {
+        guard currentQuery != query || newSearch else { return }
         currentQuery = query
         nextPage = 1
         totalPages = 1

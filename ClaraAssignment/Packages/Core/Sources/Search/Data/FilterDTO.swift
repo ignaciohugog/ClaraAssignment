@@ -1,3 +1,5 @@
+import Foundation
+
 public struct FilterDTO {
     var artistId: String
     var year: String
@@ -10,8 +12,6 @@ public struct FilterDTO {
         self.genre = genre
         self.label = label
     }
-
-
 }
 
 extension FilterDTO: Searchable {
@@ -24,25 +24,4 @@ extension FilterDTO: Searchable {
             "label": label
         ]
     }
-}
-
-struct QueryDTO {
-    var query: String
-
-    public init(query: String) {
-        self.query = query
-    }
-}
-
-extension QueryDTO: Searchable {
-    var parameters: [String: Any] {
-        [
-            "q": query,
-            "type": "artist"
-        ]
-    }
-}
-
-protocol Searchable: Equatable {
-    var parameters: [String: Any] { get }
 }
