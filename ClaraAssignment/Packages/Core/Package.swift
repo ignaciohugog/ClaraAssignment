@@ -13,19 +13,26 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/Alamofire/Alamofire", from: "5.9.1"),
-        .package(url: "https://github.com/hmlongco/Factory", from: "2.3.2")
+        .package(url: "https://github.com/hmlongco/Factory", from: "2.3.2"),
+        .package(url: "https://github.com/httpswift/swifter", from: "1.5.0")
     ],
     targets: [
         .target(
             name: "Core",
             dependencies: [
                 .product(name: "Alamofire", package: "Alamofire"),
-                .product(name: "Factory", package: "Factory")
+                .product(name: "Factory", package: "Factory"),
             ]
         ),
         .testTarget(
             name: "CoreTests",
-            dependencies: ["Core"]
+            dependencies: [
+                "Core",
+                .product(name: "Swifter", package: "swifter"),
+            ],
+            resources: [
+                .process("Mocks/")
+            ]
         ),
     ]
 )
