@@ -13,6 +13,7 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../../Core"),
+        .package(path: "../../UI"),
         .package(path: "../SearcherRoutes"),
     ],
     targets: [
@@ -20,6 +21,7 @@ let package = Package(
             name: "Album",
             dependencies: [
                 "Core",
+                "UI",
                 "SearcherRoutes"
             ]
         ),

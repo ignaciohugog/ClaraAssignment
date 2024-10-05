@@ -2,7 +2,6 @@ import UI
 import Core
 import SwiftUI
 import Factory
-import SearcherRoutes
 
 protocol AlbumViewModelInterface: ObservableObject {
     var state: ViewState<[AlbumItem]> { get }
@@ -15,7 +14,6 @@ protocol AlbumViewModelInterface: ObservableObject {
 final class AlbumViewModel: AlbumViewModelInterface {
     @Published var filter: AlbumFilter
     @Published var state: ViewState<[AlbumItem]> = .loading
-    @Injected(\.searcherRoute) private var router: SearcherRoute
     @Injected(\.searchAlbumsUseCase) private var searchUseCase: SearchAlbumsUseCase
 
     init(_ artistId: String) {
@@ -58,7 +56,12 @@ private extension AlbumViewModel {
     }
 
     private func mapToItem(_ searchItem: SearchItem) -> AlbumItem {
-        .init(id: searchItem.id, name: searchItem.title)
+        .init(albumId: searchItem.id,
+              name: searchItem.title,
+              thumb: URL(string: searchItem.thumb),
+              year: searchItem.year ?? "-",
+              genres: searchItem.genres?.joined(separator: ", ") ?? "-",
+              labels: searchItem.labels?.joined(separator: ", ") ?? "-")
     }
 
     private func mapFilter() -> FilterDTO {

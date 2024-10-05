@@ -25,7 +25,12 @@ class SearchUseCase<Query: Searchable> {
 
     private func mapToDomain(_ searchDTO: SearchDTO) -> [SearchItem] {
         searchDTO.results.map { dto in
-            SearchItem(id: dto.id, title: dto.title, thumb: dto.thumb)
+            SearchItem(id: dto.id,
+                       title: dto.title,
+                       thumb: dto.thumb,
+                       year: dto.year,
+                       genres: dto.genre,
+                       labels: dto.label)
         }
     }
 }

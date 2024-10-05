@@ -6,6 +6,9 @@ struct SearchDTO: Decodable {
         let id: Int
         let title: String
         let thumb: String
+        let year: String?
+        let genre: [String]?
+        let label: [String]?
     }
 
     struct PaginationDTO: Decodable {

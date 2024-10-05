@@ -46,7 +46,7 @@ struct ArtistView<ViewModel: ArtistViewModelInterface>: View {
                             Text("Show Albums")
                                 .frame(maxWidth: .infinity)
                                 .padding()
-                                .background(Color.blue)
+                                .background(Color.black)
                                 .foregroundColor(.white)
                                 .cornerRadius(8)
                         }

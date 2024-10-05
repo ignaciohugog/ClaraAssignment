@@ -11,14 +11,18 @@ struct AlbumView<ViewModel: AlbumViewModelInterface>: View {
             case .loaded(let items):
                 List {
                     ForEach(items) { item in
-                        Text(item.name)
+                        AlbumCardView(album: item)
                             .onAppear {
                                 if items.last == item {
                                     viewModel.search()
                                 }
                             }
                     }
+                    .listRowSeparator(.hidden)
+                    .listRowBackground(Color.clear)
                 }
+                .listStyle(PlainListStyle())
+                .background(Color(UIColor.systemGroupedBackground))
             case .info(let model):
                 EmptyContentView(model: model)
             case .loading:
@@ -52,3 +56,6 @@ struct AlbumView<ViewModel: AlbumViewModelInterface>: View {
         }
     }
 }
+
+
+
