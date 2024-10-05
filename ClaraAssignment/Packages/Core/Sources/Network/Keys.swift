@@ -7,11 +7,9 @@ struct Keys {
         : "https://api.discogs.com/"
     }
 
-    // TODO: Improve it
     struct Url {
         static let search = "\(baseURL)/database/search"
-        nonisolated(unsafe) static let artist: (String) -> String = { "\(baseURL)/artists/\($0)"
-        }
+        nonisolated(unsafe) static let artist: (String) -> String = { "\(baseURL)/artists/\($0)" }
     }
 
     struct API {

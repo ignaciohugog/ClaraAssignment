@@ -2,7 +2,7 @@
 
 class SearchRepositoryMock: SearchRepositoryInterface {
     var response: SearchDTO!
-    func search(_ artist: String) async throws -> SearchDTO {
+    func search(_ search: any Core.Searchable, page: Int) async throws -> SearchDTO {
         response
     }
 }
