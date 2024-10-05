@@ -38,11 +38,11 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Packages/Core,
-				Packages/Features/Album,
-				Packages/Features/Artist,
-				Packages/Features/Searcher,
-				Packages/Features/SearcherCoordinator,
-				Packages/Features/SearcherRoutes,
+				"Packages/Features/Artist Searcher/Album",
+				"Packages/Features/Artist Searcher/Artist",
+				"Packages/Features/Artist Searcher/Searcher",
+				"Packages/Features/Artist Searcher/SearcherCoordinator",
+				"Packages/Features/Artist Searcher/SearcherRoutes",
 				Packages/UI,
 			);
 			target = 98EE83F12CAE77D000FDCF0C /* ClaraAssignment */;
