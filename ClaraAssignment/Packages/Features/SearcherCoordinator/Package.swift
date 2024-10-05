@@ -4,28 +4,34 @@
 import PackageDescription
 
 let package = Package(
-    name: "Album",
+    name: "SearcherCoordinator",
     platforms: [.iOS(.v16)],
     products: [
         .library(
-            name: "Album",
-            targets: ["Album"]),
+            name: "SearcherCoordinator",
+            targets: ["SearcherCoordinator"]),
     ],
     dependencies: [
         .package(path: "../../Core"),
         .package(path: "../SearcherRoutes"),
+        .package(path: "../Album"),
+        .package(path: "../Artist"),
+        .package(path: "../Searcher"),
     ],
     targets: [
         .target(
-            name: "Album",
+            name: "SearcherCoordinator",
             dependencies: [
                 "Core",
-                "SearcherRoutes"
+                "SearcherRoutes",
+                "Album",
+                "Artist",
+                "Searcher"
             ]
         ),
         .testTarget(
-            name: "AlbumTests",
-            dependencies: ["Album"]
+            name: "SearcherCoordinatorTests",
+            dependencies: ["SearcherCoordinator"]
         ),
     ]
 )

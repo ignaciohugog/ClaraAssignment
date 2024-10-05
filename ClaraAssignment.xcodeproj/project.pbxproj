@@ -7,11 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		98EE84242CAE954A00FDCF0C /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 98EE84232CAE954A00FDCF0C /* Core */; };
-		98EE84272CAEA6BC00FDCF0C /* Searcher in Frameworks */ = {isa = PBXBuildFile; productRef = 98EE84262CAEA6BC00FDCF0C /* Searcher */; };
-		98EE842C2CAED80500FDCF0C /* Navigation in Frameworks */ = {isa = PBXBuildFile; productRef = 98EE842B2CAED80500FDCF0C /* Navigation */; };
-		98EE842F2CAEEAB300FDCF0C /* Artist in Frameworks */ = {isa = PBXBuildFile; productRef = 98EE842E2CAEEAB300FDCF0C /* Artist */; };
-		98EE84322CAEED2D00FDCF0C /* Album in Frameworks */ = {isa = PBXBuildFile; productRef = 98EE84312CAEED2D00FDCF0C /* Album */; };
+		98AEC7822CB1633700D36BE7 /* SearcherCoordinator in Frameworks */ = {isa = PBXBuildFile; productRef = 98AEC7812CB1633700D36BE7 /* SearcherCoordinator */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +41,8 @@
 				Packages/Features/Album,
 				Packages/Features/Artist,
 				Packages/Features/Searcher,
-				Packages/Navigation,
+				Packages/Features/SearcherCoordinator,
+				Packages/Features/SearcherRoutes,
 				Packages/UI,
 			);
 			target = 98EE83F12CAE77D000FDCF0C /* ClaraAssignment */;
@@ -78,11 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98EE842C2CAED80500FDCF0C /* Navigation in Frameworks */,
-				98EE842F2CAEEAB300FDCF0C /* Artist in Frameworks */,
-				98EE84322CAEED2D00FDCF0C /* Album in Frameworks */,
-				98EE84242CAE954A00FDCF0C /* Core in Frameworks */,
-				98EE84272CAEA6BC00FDCF0C /* Searcher in Frameworks */,
+				98AEC7822CB1633700D36BE7 /* SearcherCoordinator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,11 +144,7 @@
 			);
 			name = ClaraAssignment;
 			packageProductDependencies = (
-				98EE84232CAE954A00FDCF0C /* Core */,
-				98EE84262CAEA6BC00FDCF0C /* Searcher */,
-				98EE842B2CAED80500FDCF0C /* Navigation */,
-				98EE842E2CAEEAB300FDCF0C /* Artist */,
-				98EE84312CAEED2D00FDCF0C /* Album */,
+				98AEC7812CB1633700D36BE7 /* SearcherCoordinator */,
 			);
 			productName = ClaraAssignment;
 			productReference = 98EE83F22CAE77D000FDCF0C /* ClaraAssignment.app */;
@@ -606,25 +595,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		98EE84232CAE954A00FDCF0C /* Core */ = {
+		98AEC7812CB1633700D36BE7 /* SearcherCoordinator */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Core;
-		};
-		98EE84262CAEA6BC00FDCF0C /* Searcher */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Searcher;
-		};
-		98EE842B2CAED80500FDCF0C /* Navigation */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Navigation;
-		};
-		98EE842E2CAEEAB300FDCF0C /* Artist */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Artist;
-		};
-		98EE84312CAEED2D00FDCF0C /* Album */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Album;
+			productName = SearcherCoordinator;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -2,7 +2,7 @@ import UI
 import Core
 import SwiftUI
 import Factory
-import Navigation
+import SearcherRoutes
 
 protocol ArtistViewModelInterface: ObservableObject {
     var state: ViewState<ArtistDetailItem> { get }
@@ -14,7 +14,7 @@ protocol ArtistViewModelInterface: ObservableObject {
 final class ArtistViewModel: ArtistViewModelInterface {
     private var artistId: String
     @Published var state: ViewState<ArtistDetailItem> = .loading
-    @Injected(\.router) private var router: FlowState<SearchRoutes>
+    @Injected(\.searcherRoute) private var router: SearcherRoute
     @Injected(\.getArtistUseCase) private var getArtistUseCase: GetArtistUseCase
 
     init(_ artistId: String) {

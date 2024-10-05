@@ -2,7 +2,7 @@ import UI
 import Core
 import SwiftUI
 import Factory
-import Navigation
+import SearcherRoutes
 
 protocol SearcherViewModelInterface: ObservableObject {
     var state: ViewState<[ArtistItem]> { get }
@@ -15,7 +15,7 @@ protocol SearcherViewModelInterface: ObservableObject {
 
 final class SearcherViewModel: SearcherViewModelInterface {
     @Published var state: ViewState<[ArtistItem]> = .info(EmptyModel.search)
-    @Injected(\.router) private var router: FlowState<SearchRoutes>
+    @Injected(\.searcherRoute) private var router: SearcherRoute
     @Injected(\.searchArtistUseCase) private var searchUseCase: SearchArtistUseCase
 
     @MainActor func search(_ query: String) {
@@ -56,6 +56,6 @@ final class SearcherViewModel: SearcherViewModelInterface {
     }
 
     private func mapToItem(_ artist: SearchItem) -> ArtistItem {
-        .init(id: artist.id, name: artist.title)
+        .init(id: artist.id, name: artist.title, image: URL(string: artist.thumb))
     }
 }

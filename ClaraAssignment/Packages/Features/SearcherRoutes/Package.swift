@@ -4,24 +4,26 @@
 import PackageDescription
 
 let package = Package(
-    name: "Navigation",
+    name: "SearcherRoutes",
     platforms: [.iOS(.v16)],
     products: [
         .library(
-            name: "Navigation",
-            targets: ["Navigation"]),
+            name: "SearcherRoutes",
+            targets: ["SearcherRoutes"]),
     ],
     dependencies: [
-        .package(path: "../Core"),
+        .package(path: "../../Core"),
     ],
     targets: [
         .target(
-            name: "Navigation",
-            dependencies: ["Core"]
+            name: "SearcherRoutes",
+            dependencies: [
+                "Core",
+            ]
         ),
         .testTarget(
-            name: "NavigationTests",
-            dependencies: ["Navigation"]
+            name: "SearcherRoutesTests",
+            dependencies: ["SearcherRoutes"]
         ),
     ]
 )

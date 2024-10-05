@@ -14,7 +14,7 @@ let package = Package(
     dependencies: [
         .package(path: "../../Core"),
         .package(path: "../../UI"),
-        .package(path: "../../Navigation"),
+        .package(path: "../SearcherRoutes"),
     ],
     targets: [
         .target(
@@ -22,7 +22,7 @@ let package = Package(
             dependencies: [
                 "Core",
                 "UI",
-                "Navigation"
+                "SearcherRoutes"
             ]
         ),
         .testTarget(

@@ -2,7 +2,7 @@ import UI
 import Core
 import SwiftUI
 import Factory
-import Navigation
+import SearcherRoutes
 
 protocol AlbumViewModelInterface: ObservableObject {
     var state: ViewState<[AlbumItem]> { get }
@@ -15,7 +15,7 @@ protocol AlbumViewModelInterface: ObservableObject {
 final class AlbumViewModel: AlbumViewModelInterface {
     @Published var filter: AlbumFilter
     @Published var state: ViewState<[AlbumItem]> = .loading
-    @Injected(\.router) private var router: FlowState<SearchRoutes>
+    @Injected(\.searcherRoute) private var router: SearcherRoute
     @Injected(\.searchAlbumsUseCase) private var searchUseCase: SearchAlbumsUseCase
 
     init(_ artistId: String) {

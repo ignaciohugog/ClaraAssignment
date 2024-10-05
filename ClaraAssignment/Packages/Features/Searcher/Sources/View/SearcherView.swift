@@ -11,15 +11,22 @@ struct SearcherView<ViewModel: SearcherViewModelInterface>: View {
             case .loaded(let items):
                 List {
                     ForEach(items) { item in
-                        Text(item.name)
-                            .onTapGesture {
-                                viewModel.showArtistDetail(item)
+                        HStack {
+                            RemoteImage(url: item.image)
+                                .frame(width: 60, height: 60)
+                                .cornerRadius(10)
+                                .shadow(radius: 5)
+                            Spacer()
+                            Text(item.name)
+                        }
+                        .onTapGesture {
+                            viewModel.showArtistDetail(item)
+                        }
+                        .onAppear {
+                            if items.last == item {
+                                viewModel.search(searchQuery)
                             }
-                            .onAppear {
-                                if items.last == item {
-                                    viewModel.search(searchQuery)
-                                }
-                            }
+                        }
                     }
                 }
             case .info(let model):
