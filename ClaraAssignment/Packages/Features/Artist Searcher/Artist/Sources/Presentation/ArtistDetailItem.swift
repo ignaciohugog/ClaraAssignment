@@ -1,3 +1,5 @@
+import Foundation
+
 struct ArtistDetailItem: Identifiable, Hashable {
     var id: Int
     var name: String
@@ -7,6 +9,5 @@ struct ArtistDetailItem: Identifiable, Hashable {
     struct Member: Identifiable, Hashable {
         let id: Int
         let name: String
-        let resourceURL: String
     }
 }

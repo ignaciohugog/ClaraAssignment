@@ -35,10 +35,15 @@ final class ArtistViewModel: ArtistViewModelInterface {
     func showAlbums() {
         router.push(.album(artistId))
     }
+}
 
+extension ArtistViewModel {
     private func mapToItem(_ artist: ArtistDetail) -> ArtistDetailItem {
-        .init(id: artist.id, name: artist.name, description: artist.description, members: artist.members?.map {
-            .init(id: $0.id, name: $0.name, resourceURL: $0.resourceURL)
+        .init(id: artist.id,
+              name: artist.name,
+              description: artist.description,
+              members: artist.members?.map {
+            .init(id: $0.id, name: $0.name)
         })
     }
 }

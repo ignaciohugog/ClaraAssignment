@@ -7,6 +7,13 @@ public struct ArtistDetail: Sendable {
     public struct Member: Sendable {
         public let id: Int
         public let name: String
-        public let resourceURL: String
     }
+
+    public init(id: Int, name: String, description: String, members: [Member]?) {
+        self.id = id
+        self.name = name
+        self.description = description
+        self.members = members
+    }
+
 }

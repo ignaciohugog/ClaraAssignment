@@ -2,25 +2,25 @@ import Testing
 import Foundation
 import Core
 import Factory
-@testable import Searcher
+@testable import Artist
 
 @Suite(.serialized)
-final class SearcherViewModelTests {
+final class ArtistViewModelTests {
 
-    private var sut: SearcherViewModel!
-    private var searchUseCaseMock: SearchUseCaseMock!
+    private var sut: ArtistViewModel!
+    private var getArtistUseCaseMock: GetArtistUseCaseMock!
 
     // MARK: - Setup
 
     init() {
-        searchUseCaseMock = SearchUseCaseMock()
-        Container.shared.searchArtistUseCase.register { self.searchUseCaseMock }
-        sut = SearcherViewModel()
+        getArtistUseCaseMock = GetArtistUseCaseMock()
+        Container.shared.getArtistUseCase.register { self.getArtistUseCaseMock }
+        sut = ArtistViewModel("")
     }
 
     deinit {
         sut = nil
-        searchUseCaseMock = nil
+        getArtistUseCaseMock = nil
     }
 
     // MARK: - Tests
@@ -28,7 +28,7 @@ final class SearcherViewModelTests {
     @MainActor @Test func testSubmitWhenSuccessThenStateIsLoaded() async {
         givenSuccess()
 
-        sut.onSubmit("")
+        sut.onAppear()
 
         await thenExpectLoaded()
     }
@@ -36,7 +36,7 @@ final class SearcherViewModelTests {
     @MainActor @Test func testSubmitWhenFailThenStateIsInfo() async {
         givenEmptyResponse()
 
-        sut.onSubmit("")
+        sut.onAppear()
 
         await thenExpectInfo()
     }
@@ -44,11 +44,12 @@ final class SearcherViewModelTests {
     // MARK: - Given
 
     func givenSuccess() {
-        searchUseCaseMock.response = .success([])
+        let mock: ArtistDetail = ArtistDetail(id: 0, name: "", description: "", members: [])
+        getArtistUseCaseMock.response = .success(mock)
     }
 
     func givenEmptyResponse() {
-        searchUseCaseMock.response = .failure(.empty)
+        getArtistUseCaseMock.response = .failure(.badServerResponse)
     }
 
     // MARK: Then

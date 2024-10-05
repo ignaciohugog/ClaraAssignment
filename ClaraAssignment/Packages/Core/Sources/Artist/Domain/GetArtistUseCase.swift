@@ -24,8 +24,7 @@ struct GetArtist: GetArtistUseCase {
                     members: dto.members?.map { member in
                         ArtistDetail.Member(
                             id: member.id,
-                            name: member.name,
-                            resourceURL: member.resourceURL ?? ""
+                            name: member.name
                         )
                     }
                 )

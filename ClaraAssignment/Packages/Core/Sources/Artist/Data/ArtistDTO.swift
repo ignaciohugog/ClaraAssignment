@@ -7,11 +7,9 @@ struct ArtistDTO: Decodable {
     struct Member: Decodable {
         let id: Int
         let name: String
-        let resourceURL: String?
 
         enum CodingKeys: String, CodingKey {
             case id, name
-            case resourceURL = "resource_url"            
         }
     }
 }
