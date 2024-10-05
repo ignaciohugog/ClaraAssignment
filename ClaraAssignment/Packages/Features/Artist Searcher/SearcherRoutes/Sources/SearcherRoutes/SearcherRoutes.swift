@@ -9,7 +9,6 @@ public enum SearchRoutes: Hashable, Identifiable {
     }
 }
 
-
 public protocol SearcherRoute {
     func push(_ route: SearchRoutes)
 }
@@ -21,13 +20,5 @@ public final class SearcherFlowState: ObservableObject, SearcherRoute {
 
     public func push(_ route: SearchRoutes) {
         path.append(route)
-    }
-}
-
-import Factory
-
-extension Container {
-    public var searcherRoute: Factory<SearcherRoute> {
-        Factory(self) { SearcherFlowState() }.singleton
     }
 }

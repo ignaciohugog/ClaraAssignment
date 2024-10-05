@@ -1,11 +1,7 @@
 import SwiftUI
-import Factory
 
-// TODO: Improve it
-
-@MainActor
 public final class SearcherServiceLocator {
-    public static func entryView() -> some View {
+    public static func mainView() -> some View {
         SearcherView(viewModel: SearcherViewModel())
     }
 }

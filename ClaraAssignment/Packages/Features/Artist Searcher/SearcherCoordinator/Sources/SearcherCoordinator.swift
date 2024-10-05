@@ -15,9 +15,9 @@ struct SearcherCoordinator<Content: View>: View {
                 .navigationDestination(for: SearchRoutes.self) { route in
                     switch route {
                     case .artist(let artist):
-                        ArtistServiceLocator.entryView(artist)
+                        ArtistServiceLocator.mainView(artist)
                     case .album(let artist):
-                        AlbumServiceLocator.entryView(artist)
+                        AlbumServiceLocator.mainView(artist)
                     }
                 }
         }
@@ -25,8 +25,8 @@ struct SearcherCoordinator<Content: View>: View {
 }
 
 @MainActor public func SearcherCoordinatorView() -> some View {
+    let view = SearcherServiceLocator.mainView()
     let state = Container.shared.searcherRoute.resolve()
-    let view = SearcherServiceLocator.entryView()
 
     return SearcherCoordinator(state: state as! SearcherFlowState) {
         view
