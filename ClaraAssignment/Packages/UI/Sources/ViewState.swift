@@ -1,10 +1,10 @@
-public enum ViewState<T> {
+public enum ViewState<T: Sendable>: Sendable {
     case loaded(T)
     case info(EmptyModel)
     case loading
 }
 
-public struct EmptyModel {
+public struct EmptyModel: Sendable {
     public var title: String
     public var systemImage: String
     public var description: String

@@ -52,10 +52,10 @@ final class SearcherViewModel: SearcherViewModelInterface {
     }
 
     func showArtistDetail(_ item: ArtistItem) {
-        router.push(.artist("\(item.id)"))
+        router.push(.artist("\(item.itemId)"))
     }
 
     private func mapToItem(_ artist: SearchItem) -> ArtistItem {
-        .init(id: artist.id, name: artist.title, image: URL(string: artist.thumb))
+        .init(itemId: artist.id, name: artist.title, image: URL(string: artist.thumb))
     }
 }

@@ -1,7 +1,8 @@
 import Foundation
 
 struct ArtistItem: Identifiable, Hashable {
-    var id: Int
+    var id = UUID()
+    var itemId: Int
     var name: String
     var image: URL?
 }

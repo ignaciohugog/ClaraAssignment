@@ -25,13 +25,10 @@ final class SearcherViewModelTests {
 
     // MARK: - Tests
 
-    // TODO: Fix this test
-
-
     @MainActor @Test func testSubmitWhenSuccessThenStateIsLoaded() async {
         givenSuccess()
 
-        sut.onSubmit()
+        sut.onSubmit("")
 
         await thenExpectLoaded()
     }
@@ -39,7 +36,7 @@ final class SearcherViewModelTests {
     @MainActor @Test func testSubmitWhenFailThenStateIsInfo() async {
         givenEmptyResponse()
 
-        sut.onSubmit()
+        sut.onSubmit("")
 
         await thenExpectInfo()
     }
@@ -53,9 +50,6 @@ final class SearcherViewModelTests {
     func givenEmptyResponse() {
         searchUseCaseMock.response = .failure(.empty)
     }
-
-    // MARK: When
-
 
     // MARK: Then
 

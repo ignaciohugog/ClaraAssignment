@@ -11,14 +11,7 @@ struct SearcherView<ViewModel: SearcherViewModelInterface>: View {
             case .loaded(let items):
                 List {
                     ForEach(items) { item in
-                        HStack {
-                            RemoteImage(url: item.image)
-                                .frame(width: 60, height: 60)
-                                .cornerRadius(10)
-                                .shadow(radius: 5)
-                            Spacer()
-                            Text(item.name)
-                        }
+                        SearcherCardView(item: item)
                         .onTapGesture {
                             viewModel.showArtistDetail(item)
                         }
@@ -28,7 +21,11 @@ struct SearcherView<ViewModel: SearcherViewModelInterface>: View {
                             }
                         }
                     }
+                    .listRowSeparator(.hidden)
+                    .listRowBackground(Color.clear)
                 }
+                .listStyle(PlainListStyle())
+                .background(Color(UIColor.systemGroupedBackground))
             case .info(let model):
                 EmptyContentView(model: model)
             case .loading:
