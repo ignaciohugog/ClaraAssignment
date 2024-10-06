@@ -1,5 +1,5 @@
 # Clara Assignment App
-![Build Status](https://app.bitrise.io/app/be845f71-7912-49e2-ab90-b83048d5fbac/status.svg?token=Ed7LJZ7kcuv6K9CHRE37ng&branch=master)
+
 # Features
 - [x] Search Functionality
 - [x] Artist Detail View
