@@ -4,6 +4,7 @@ import Foundation
 
 @testable import Core
 
+@Suite(.serialized)
 final class SearchRepositoryTests {
 
     private var sut = SearchRepository()

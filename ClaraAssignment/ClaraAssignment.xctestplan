@@ -17,6 +17,7 @@
   },
   "testTargets" : [
     {
+      "parallelizable" : false,
       "target" : {
         "containerPath" : "container:ClaraAssignment\/Packages\/Features\/Artist Searcher\/Searcher",
         "identifier" : "SearcherTests",
@@ -24,6 +25,7 @@
       }
     },
     {
+      "parallelizable" : false,
       "target" : {
         "containerPath" : "container:ClaraAssignment\/Packages\/Features\/Artist Searcher\/Album",
         "identifier" : "AlbumTests",
@@ -31,6 +33,7 @@
       }
     },
     {
+      "parallelizable" : false,
       "target" : {
         "containerPath" : "container:ClaraAssignment\/Packages\/Core",
         "identifier" : "CoreTests",
@@ -38,6 +41,7 @@
       }
     },
     {
+      "parallelizable" : false,
       "target" : {
         "containerPath" : "container:ClaraAssignment\/Packages\/Features\/Artist Searcher\/Artist",
         "identifier" : "ArtistTests",
