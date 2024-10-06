@@ -13,8 +13,7 @@
 1. Clone the repository
 [https://github.com/ignaciohugog/ClaraAssignment](https://github.com/ignaciohugog/ClaraAssignment)
 2. Open ```ClaraAssignment.xcodeproj```
-3. Run the tests ```CTRL+U```
-3. Also build and run ```CTRL+R```
+3. Build and run ```CTRL+R```
 
 # Architecture Overview
 The application is structured using a modular architecture, following the MVVM (Model-View-ViewModel) pattern combined with the Coordinator pattern. The architecture adheres to SOLID principles, enabling scalability, maintainability, and separation of concerns.
