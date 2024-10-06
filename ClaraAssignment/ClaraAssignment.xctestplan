@@ -1,0 +1,49 @@
+{
+  "configurations" : [
+    {
+      "id" : "CE1359A1-6076-4827-B4B7-FCB602499854",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:ClaraAssignment.xcodeproj",
+      "identifier" : "98EE83F12CAE77D000FDCF0C",
+      "name" : "ClaraAssignment"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:ClaraAssignment\/Packages\/Features\/Artist Searcher\/Searcher",
+        "identifier" : "SearcherTests",
+        "name" : "SearcherTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:ClaraAssignment\/Packages\/Features\/Artist Searcher\/Album",
+        "identifier" : "AlbumTests",
+        "name" : "AlbumTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:ClaraAssignment\/Packages\/Core",
+        "identifier" : "CoreTests",
+        "name" : "CoreTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:ClaraAssignment\/Packages\/Features\/Artist Searcher\/Artist",
+        "identifier" : "ArtistTests",
+        "name" : "ArtistTests"
+      }
+    }
+  ],
+  "version" : 1
+}
