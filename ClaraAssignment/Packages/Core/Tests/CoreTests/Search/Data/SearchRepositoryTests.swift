@@ -4,7 +4,7 @@ import Foundation
 
 @testable import Core
 
-final class StocksRepositoryTests {
+final class SearchRepositoryTests {
 
     private var sut = SearchRepository()
     private let server = HttpServer()
